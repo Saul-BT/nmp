@@ -1,0 +1,9 @@
+* No More Procrastination (NMP)
+
+  This tool aims to help organize your tasks, and not procrastinate.
+
+** TODO ToDo's [0/3]
+
+   - [ ] Create stacks (todo, skipped, ...)
+   - [ ] Display a stamina bar
+   - [ ] Think in more ToDo's
