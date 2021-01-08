@@ -1,6 +1,38 @@
-use nmp::models::task::TaskState;
+use nmp::models::task::{Task, TaskPriority, TaskState};
 use nmp::models::task_stack::TaskStack;
 mod test_data;
+
+#[test]
+fn tasks_list() {
+    let mut stack = TaskStack::new();
+    let num_tasks = 5;
+    let list = vec![
+        "task0 - Lorem ipsum dolor [A]",
+        "task1 - Lorem ipsum dolor [A]",
+        "task2 - Lorem ipsum dolor [A]",
+        "task3 - Lorem ipsum dolor [A]",
+        "task4 - Lorem ipsum dolor [A]",
+    ]
+    .join("\n");
+    test_data::add_tasks(&mut stack, num_tasks, TaskState::TODO);
+
+    assert_eq!(list, stack.list());
+}
+
+#[test]
+fn get_task() {
+    let mut stack = TaskStack::new();
+    let num_tasks = 5;
+    let third_task = Task {
+        title: String::from("task3"),
+        description: String::from("Lorem ipsum dolor"),
+        priority: TaskPriority::A,
+        state: TaskState::TODO,
+    };
+    test_data::add_tasks(&mut stack, num_tasks, TaskState::TODO);
+
+    assert_eq!(&third_task, stack.get(3));
+}
 
 #[test]
 fn stack_length_with_zero_tasks() {

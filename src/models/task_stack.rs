@@ -17,6 +17,23 @@ impl TaskStack {
         self.tasks.remove(task_index)
     }
 
+    pub fn get(&self, task_index: usize) -> &Task {
+        &self.tasks[task_index]
+    }
+
+    pub fn list(&self) -> String {
+        self.tasks
+            .iter()
+            .map(|task| -> String {
+                format!(
+                    "{} - {} [{:?}]",
+                    task.title, task.description, task.priority
+                )
+            })
+            .collect::<Vec<String>>()
+            .join("\n")
+    }
+
     pub fn get_completed(&mut self) -> Vec<&Task> {
         self.tasks
             .iter()

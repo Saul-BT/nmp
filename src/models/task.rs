@@ -11,6 +11,7 @@ pub enum TaskState {
     DONE,
 }
 
+#[derive(PartialEq, Debug)]
 pub struct Task {
     pub title: String,
     pub description: String,
