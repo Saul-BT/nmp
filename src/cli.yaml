@@ -1,0 +1,34 @@
+name: NMP
+version: "1.0"
+author: Saul Blanco Tejero <saulbt99@gmail.com>
+about: No More Procrastination
+args:
+    - config:
+        short: c
+        long: config
+        value_name: FILE
+        about: Sets a custom config file
+        takes_value: true
+subcommands:
+    - add:
+        about: Appends a task to the stack
+        args:
+          - title:
+              about: Title of the task
+              required: true
+          - description:
+              about: Description of the task
+          - priority:
+              about: Priority of the task (Default is A)
+              possible_values: [A, B, C]
+    - remove:
+        about: Removes a task from the stack
+        args:
+          - task_id:
+              about: The id of the task
+              required: true
+    - list:
+        about: Displays a list of tasks
+        args:
+          - task_state:
+              about: The state of the task
