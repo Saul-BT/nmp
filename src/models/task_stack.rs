@@ -24,12 +24,7 @@ impl TaskStack {
     pub fn list(&self) -> String {
         self.tasks
             .iter()
-            .map(|task| -> String {
-                format!(
-                    "{} - {} [{:?}]",
-                    task.title, task.description, task.priority
-                )
-            })
+            .map(|task| -> String { task.to_org() })
             .collect::<Vec<String>>()
             .join("\n")
     }

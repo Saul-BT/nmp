@@ -7,11 +7,11 @@ fn tasks_list() {
     let mut stack = TaskStack::new();
     let num_tasks = 5;
     let list = vec![
-        "task0 - Lorem ipsum dolor [A]",
-        "task1 - Lorem ipsum dolor [A]",
-        "task2 - Lorem ipsum dolor [A]",
-        "task3 - Lorem ipsum dolor [A]",
-        "task4 - Lorem ipsum dolor [A]",
+        "* TODO [#A] task0\nLorem ipsum dolor",
+        "* TODO [#A] task1\nLorem ipsum dolor",
+        "* TODO [#A] task2\nLorem ipsum dolor",
+        "* TODO [#A] task3\nLorem ipsum dolor",
+        "* TODO [#A] task4\nLorem ipsum dolor",
     ]
     .join("\n");
     test_data::add_tasks(&mut stack, num_tasks, TaskState::TODO);
